@@ -54,6 +54,8 @@ interface Acl2 {}
 interface AdminAssistant {
   uid: string;
   _content_type_uid: string;
+  emails: Email[];
+  full_name: string;
 }
 
 interface Email {

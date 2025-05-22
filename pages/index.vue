@@ -8,7 +8,7 @@ await execute();
     <Navigation></Navigation>
 
     <header class="prose my-5">
-      <h1>{{ title }}</h1>
+      <!-- <h1>{{ title }}</h1> -->
     </header>
 
     <LeaderSection v-for="section in sections" :section="section" />
