@@ -54,7 +54,7 @@ const formatPhone = (num: number) => {
           </div>
 
           <div class="hover:bg-gray-100">
-            <USeparator />
+            <USeparator class="my-1" />
 
             <a
               :href="`mailto:${leader.emails[0].address}`"
@@ -81,7 +81,7 @@ const formatPhone = (num: number) => {
           </div>
 
           <div v-if="leader.admin_assistant.length" class="hover:bg-gray-100">
-            <USeparator />
+            <USeparator class="my-1" />
 
             <a
               :href="`mailto:${leader.admin_assistant[0].emails[0].address}`"
