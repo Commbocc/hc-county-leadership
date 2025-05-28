@@ -1,11 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{ leader: Leader }>();
 
-// const headshot = computed(
-//   () =>
-//     `https://res.cloudinary.com/hillsboroughcounty/image/upload/w_150/t_WebP/${props.leader.headshot[0].public_id}`? ?? undefined,
-// );
-
 const headshot = computed(() => {
   const publicId = props.leader.headshot?.[0]?.public_id;
   return publicId
@@ -17,19 +12,19 @@ const formatPhone = (num: number) => {
   const n = String(num);
   return `(${n.substring(0, 3)}) ${n.substring(3, 6)}-${n.substring(6, 10)}`;
 };
-
-// const joinedTitle = computed(() =>
-//   [props.leader.job_title, props.leader.department].filter(Boolean).join(": "),
-// );
 </script>
 
 <template>
   <UCard>
-    <div class="flex gap-3">
-      <a :href="headshot"><img :src="headshot" :alt="leader.full_name" /></a>
+    <div class="flex w-min">
+      <a :href="headshot" class="basis-45 shrink-0 self-center"
+        ><img :src="headshot" :alt="leader.full_name || leader.title"
+      /></a>
 
       <div class="space-y-1">
-        <h3 class="text-lg font-medium">{{ leader.full_name }}</h3>
+        <h3 class="text-lg font-medium">
+          {{ leader.full_name || leader.title }}
+        </h3>
         <p class="font-thin mb-5">{{ leader.job_title }}</p>
 
         <div class="hover:bg-gray-100">
@@ -109,7 +104,10 @@ const formatPhone = (num: number) => {
 
             <span class="flex flex-col">
               <span class="font-thin">Admin Assistant:</span>
-              {{ leader.admin_assistant[0].full_name }}
+              {{
+                leader.admin_assistant[0].full_name ||
+                leader.admin_assistant[0].title
+              }}
             </span>
           </a>
         </div>

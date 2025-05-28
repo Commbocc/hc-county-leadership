@@ -56,6 +56,7 @@ interface AdminAssistant {
   _content_type_uid: string;
   emails: Email[];
   full_name: string;
+  title: string;
 }
 
 interface Email {

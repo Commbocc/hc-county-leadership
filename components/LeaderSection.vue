@@ -3,8 +3,10 @@ const props = defineProps<{ section: Section }>();
 </script>
 
 <template>
-  <header class="prose my-3 flex justify-between">
-    <h2 :id="toIdentifier(section.title)">{{ section.title }}</h2>
+  <header class="flex justify-between">
+    <h2 :id="toIdentifier(section.title)" class="text-2xl">
+      {{ section.title }}
+    </h2>
 
     <a href="#top" title="Back to Top">
       <svg
