@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   modules: ["@nuxt/ui"],
   css: ["~/assets/css/main.css"],
   app: {
+    baseURL: "/hc-county-leadership/",
     head: {
       script: [
         {
