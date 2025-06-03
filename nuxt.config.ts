@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxt/ui"],
   css: ["~/assets/css/main.css"],
+  plugins: ["~/plugins/iframe-resizer-content.client"],
 
   ui: {
     colorMode: false,
