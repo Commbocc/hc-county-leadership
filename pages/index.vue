@@ -4,12 +4,10 @@ await execute();
 </script>
 
 <template>
-  <UContainer>
+  <UContainer class="my-3">
     <Navigation></Navigation>
 
-    <header class="prose my-5">
-      <!-- <h1>{{ title }}</h1> -->
-    </header>
+    <header id="top" class="my-5"></header>
 
     <LeaderSection v-for="section in sections" :section="section" />
   </UContainer>
