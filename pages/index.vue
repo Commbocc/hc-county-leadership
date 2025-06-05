@@ -7,7 +7,7 @@ await execute();
   <UContainer class="my-3">
     <Navigation></Navigation>
 
-    <header id="top" class="my-5"></header>
+    <a id="top" class="my-5 block"></a>
 
     <LeaderSection v-for="section in sections" :section="section" />
   </UContainer>
