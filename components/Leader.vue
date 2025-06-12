@@ -17,7 +17,7 @@ const formatPhone = (num: number) => {
 <template>
   <UCard>
     <div class="flex">
-      <a :href="headshot" class="basis-45 shrink-0 self-center"
+      <a :href="headshot" target="_blank" class="basis-45 shrink-0 self-center"
         ><img :src="headshot" :alt="leader.full_name || leader.title"
       /></a>
 
