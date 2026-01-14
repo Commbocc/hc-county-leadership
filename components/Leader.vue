@@ -28,7 +28,7 @@ const formatPhone = (num: number) => {
         <p class="font-thin mb-5">{{ leader.job_title }}</p>
 
         <div class="max-w-fit">
-          <div class="hover:bg-gray-100">
+          <div v-if="leader.phones.length" class="hover:bg-gray-100">
             <a
               :href="`tel:${leader.phones[0].number}`"
               class="text-nowrap flex items-center gap-2"
