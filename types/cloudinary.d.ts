@@ -1,0 +1,24 @@
+type CloudinaryHeadshot = Partial<{
+  public_id: string;
+  resource_type: string;
+  type: string;
+  format: string;
+  version: number;
+  url: string;
+  secure_url: string;
+  width: number;
+  height: number;
+  bytes: number;
+  duration: any;
+  tags: any[];
+  metadata: Metadata2;
+  created_at: string;
+  access_mode: string;
+  access_control: any[];
+  created_by: CreatedBy;
+  uploaded_by: UploadedBy;
+  folder_id: string;
+  id: string;
+  display_name: string;
+  asset_folder: string;
+}>;

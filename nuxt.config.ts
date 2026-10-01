@@ -6,20 +6,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxt/ui"],
   css: ["~/assets/css/main.css"],
-  experimental: {
-    appManifest: false,
-  },
 
   app: {
     baseURL,
-    head: {
-      script: [
-        {
-          src: `${baseURL}/iframeResizer.contentWindow.min.js`,
-          async: true,
-        },
-      ],
-    },
   },
 
   ui: {

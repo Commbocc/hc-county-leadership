@@ -1,8 +1,12 @@
 <script setup lang="ts">
-const props = defineProps<{ leader: Leader }>();
+import type { Contact } from "~/types/contentstack";
+
+const props = defineProps<{ leader: Contact }>();
 
 const headshot = computed(() => {
-  const publicId = props.leader.headshot?.[0]?.public_id;
+  const publicId = (
+    props.leader.headshot as unknown as CloudinaryHeadshot[]
+  )?.[0]?.public_id;
   return publicId
     ? `https://res.cloudinary.com/hillsboroughcounty/image/upload/w_150/t_WebP/${publicId}`
     : "https://res.cloudinary.com/hillsboroughcounty/image/upload/w_150/t_WebP/placeHolder_fdbk7l.gif";
@@ -28,7 +32,7 @@ const formatPhone = (num: number) => {
         <p class="font-thin mb-5">{{ leader.job_title }}</p>
 
         <div class="max-w-fit">
-          <div v-if="leader.phones.length" class="hover:bg-gray-100">
+          <div v-if="leader.phones?.length" class="hover:bg-gray-100">
             <a
               :href="`tel:${leader.phones[0].number}`"
               class="text-nowrap flex items-center gap-2"
@@ -49,7 +53,7 @@ const formatPhone = (num: number) => {
                 />
               </svg>
 
-              {{ formatPhone(leader.phones[0].number) }}
+              {{ formatPhone(leader.phones?.[0]?.number) }}
             </a>
           </div>
 
@@ -57,7 +61,7 @@ const formatPhone = (num: number) => {
             <USeparator class="my-1" />
 
             <a
-              :href="`mailto:${leader.emails[0].address}`"
+              :href="`mailto:${leader.emails?.[0]?.address}`"
               class="text-nowrap flex items-center gap-2"
             >
               <svg
@@ -80,11 +84,11 @@ const formatPhone = (num: number) => {
             </a>
           </div>
 
-          <div v-if="leader.admin_assistant.length" class="hover:bg-gray-100">
+          <div v-if="leader.admin_assistant?.length" class="hover:bg-gray-100">
             <USeparator class="my-1" />
 
             <a
-              :href="`mailto:${leader.admin_assistant[0].emails[0].address}`"
+              :href="`mailto:${leader.admin_assistant?.[0]?.emails?.[0]?.address}`"
               class="text-nowrap flex items-center gap-2"
             >
               <svg
@@ -106,8 +110,8 @@ const formatPhone = (num: number) => {
               <span class="flex flex-col">
                 <span class="font-thin">Admin Assistant:</span>
                 {{
-                  leader.admin_assistant[0].full_name ||
-                  leader.admin_assistant[0].title
+                  leader.admin_assistant?.[0]?.full_name ||
+                  leader.admin_assistant?.[0]?.title
                 }}
               </span>
             </a>
