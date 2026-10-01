@@ -9,6 +9,14 @@ export default defineNuxtConfig({
 
   app: {
     baseURL,
+    head: {
+      script: [
+        {
+          src: `${baseURL}/iframeResizer.contentWindow.min.js`,
+          async: true,
+        },
+      ],
+    },
   },
 
   ui: {
