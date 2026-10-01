@@ -6,10 +6,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxt/ui"],
   css: ["~/assets/css/main.css"],
-  nitro: {
-    prerender: {
-      failOnError: false,
-    },
+  experimental: {
+    appManifest: false,
   },
 
   app: {
